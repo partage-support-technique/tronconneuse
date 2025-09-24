@@ -1,357 +1,513 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAKITA guide et chaine TM</title>
-  <style>
-    body {
-      text-align: center;
-      font-family: Arial, sans-serif;
-      position: relative;
-      padding-bottom: 80px; /* Pour laisser de l'espace au texte en bas */
-    }
-    .header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .header img {
-      max-width: 200px;
-      margin: 10px;
-    }
-    .header a {
-      display: block;
-    }
-    input {
-      display: block;
-      margin: 10px auto;
-      padding: 5px;
-    }
-    .ref-block {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      margin: 5px;
-    }
-    button {
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-    .final-message {
-      margin-top: 40px;
-      font-weight: bold;
-      text-align: center;
-    }
-    .footer-link {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-    }
-    .signature {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      font-style: italic;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caractéristiques Makita / Dolmar</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            background-color: #ffffff;
+            color: #333333;
+            padding: 20px;
+            position: relative;
+            min-height: 100vh;
+        }
+        .header {
+            padding: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .main-title {
+            font-size: 2em;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .product-image {
+            max-width: 11.11%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        .search-section {
+            margin: 40px 0;
+        }
+        .search-container {
+            position: relative;
+            display: inline-block;
+            width: 80%;
+            max-width: 500px;
+        }
+        .search-label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            color: #333333;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: #0078d4;
+            box-shadow: 0 0 10px rgba(0, 120, 212, 0.3);
+        }
+        .results-container {
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        .results-block {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .field {
+            margin-bottom: 15px;
+        }
+        .field-label {
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #666;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .field-value {
+            font-size: 1.1em;
+            color: #0078d4;
+            word-break: break-word;
+            display: block;
+        }
+        .ref-block {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 5px;
+        }
+        .footer-signature {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-style: italic;
+            color: #666;
+            font-size: 0.9em;
+            text-align: right;
+            line-height: 1.3;
+        }
+        .summary-button {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            padding: 12px 25px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 120, 212, 0.4);
+            text-decoration: none;
+        }
+        .summary-button:hover {
+            background-color: #005a9c;
+            transform: translateY(-2px);
+        }
+        .copy-button {
+            padding: 12px 25px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 120, 212, 0.4);
+            margin-top: 20px;
+        }
+        .copy-button:hover {
+            background-color: #005a9c;
+            transform: translateY(-2px);
+        }
+        .final-message {
+            margin-top: 40px;
+            font-weight: bold;
+            text-align: center;
+        }
+        #notFound {
+            color: red;
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .product-image {
+                max-width: 80%;
+            }
+            .results-block {
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="header">
-    <a href="https://www.makita.fr" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/fr/2/21/Makita_Logo.png" alt="Makita Logo">
-    </a>
-    <img src="https://fi.makitamedia.com/images/3_Makita/301_machines/3011_a_GS1/30120_JPG_zoom/UC002G_C8L0.jpg" alt="Makita Tronçonneuse">
-  </div>
 
-  <label for="mainRef">Modèle EXACT de la tronçonneuse :</label>
-  <input type="text" id="mainRef" list="refList" oninput="updateReferences()" placeholder="Ex: DUC254Z001">
-  <datalist id="refList"></datalist>
+    <div class="header">
+        <a href="https://www.makita.fr/">
+            <img src="https://www.makita.fr/data/pam/public/makita_logo3.png" alt="Logo Makita" class="logo">
+        </a>
+        <h1 class="main-title">Caractéristiques de nos débroussailleuses et tronçonneuses Makita / Dolmar</h1>
+    </div>
 
-  <div id="references">
-    <div class="ref-block">
-      <p><strong>Spécification technique:</strong> <span id="ref1">-</span></p>
-      <button onclick="copyText('ref1')">Copier</button>
-    </div>
-    <div class="ref-block">
-      <p><strong>Référence du pignon :</strong> <span id="ref2">-</span></p>
-      <button onclick="copyText('ref2')">Copier</button>
-    </div>
-    <div class="ref-block">
-      <p><strong>Référence de la chaîne :</strong> <span id="ref3">-</span></p>
-      <button onclick="copyText('ref3')">Copier</button>
-    </div>
-    <div class="ref-block">
-      <p><strong>Référence du guide :</strong> <span id="ref4">-</span></p>
-      <button onclick="copyText('ref4')">Copier</button>
-    </div>
-    <button onclick="copyAll()">Tout copier</button>
-  </div>
+    <img src="https://fi.makitamedia.com/images//3_Makita/301_machines/3011_a_GS1/30120_JPG_zoom/UC002G_C8L0.jpg" alt="Makita Tronçonneuse" style="max-width: 150px; margin-bottom: 20px;">
+    <img src="https://fi.makitamedia.com/images//3_Makita/301_machines/3011_a_GS1/30115_JPG_web/DUR368AZX3_C2R0.jpg" alt="Débroussailleuse Makita" class="product-image">
 
-  <p id="notFound" style="color: red; display: none;">Référence non trouvée 😕</p>
+    <h2 style="margin-top: 40px;">Caractéristiques débroussailleuses</h2>
+    <hr>
 
-  <div class="final-message">
-    <p>Pour toutes questions complémentaires sur la compatibilité des tronçonneuses MAKITA : technique@makita.fr</p>
-    <p>Si un doute subsiste sur la configuration actuelle de la tronçonneuse, il faut changer les 3 éléments tel qu'identifié sur cette page.</p>
-  </div>
-  
-  <div class="footer-link">
-    <a href="https://partage-support-technique.github.io/sommaire/">Sommaire</a>
-  </div>
-  <div class="signature">Le support Technique Makita</div>
+    <div class="search-section">
+        <p class="search-label">Modèle de débroussailleuse / multi outil débroussailleuse :</p>
+        <div class="search-container">
+            <input type="text" id="modelSearch" class="search-input" placeholder="Rechercher un modèle..." list="models">
+            <datalist id="models"></datalist>
+        </div>
+    </div>
+    
+    <div id="resultsContainer" class="results-container" style="display: none;">
+        <div class="results-block">
+            <div class="field">
+                <span class="field-label">Famille :</span>
+                <span class="field-value" id="familleValue"></span>
+            </div>
+            <div class="field">
+                <span class="field-label">Machine :</span>
+                <span class="field-value" id="machineValue"></span>
+            </div>
+            <div class="field">
+                <span class="field-label">Filetage tête :</span>
+                <span class="field-value" id="filetageValue"></span>
+            </div>
+            <div class="field">
+                <span class="field-label">Référence tête à fil(s) :</span>
+                <span class="field-value" id="referenceValue"></span>
+            </div>
+            <div class="field">
+                <span class="field-label">Descriptif tête :</span>
+                <span class="field-value" id="descriptifValue"></span>
+            </div>
+            <div class="field">
+                <span class="field-label">Diamètre de coupe fil :</span>
+                <span class="field-value" id="diametreCoupeValue"></span>
+            </div>
+            <div class="field">
+                <span class="field-label">Couteau plastique :</span>
+                <span class="field-value" id="couteauPlastiqueValue"></span>
+            </div>
+            <div class="field">
+                <span class="field-label">Carter couteau plastique :</span>
+                <span class="field-value" id="carterCouteauValue"></span>
+            </div>
+            <div class="field">
+                <span class="field-label">Lame :</span>
+                <span class="field-value" id="lameValue"></span>
+            </div>
+            <div class="field">
+                <span class="field-label">Carter lame :</span>
+                <span class="field-value" id="carterLameValue"></span>
+            </div>
+        </div>
+        <button id="copyButton" class="copy-button">Copier toutes les caractéristiques débroussailleuse</button>
+    </div>
 
-  <script>
-    const referenceData = {
-    "DUC254Z001": ["25cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T89-0", "191T85-8"],
-    "5016B": ["40cm 91PX pas 3/8\" gauge 1,3mm", "221514-8", "191H12-3", "168248-1"],
-    "DUC254Z": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
-    "DUC254RT": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
-    "DUC254RF": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
-    "DUC254T002": ["25cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T89-0", "191T85-8"],
-    "DUC254T003": ["25cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T89-0", "191T85-8"],
-    "ME246-4": ["255mm pas 3/8\" gauge 1,3mm", "XTM0000014", "196725-3", "191G11-9"],
-    "AS1812LG3": ["255mm 25AP pas 1/4\" gauge 1,3mm", "221527-9", "191G95-7", "158479-0"],
-    "AS1925": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
-    "AS1925Z": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
-    "AS1925RT2": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
-    "AS1925RF": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
-    "AS1925CRT2": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
-    "AS1925CZ": ["25cm 25AP pas 1/4\" gauge 1,3mm", "198259-2", "191G96-5", "168395-8"],
-    "DUC254C": ["25cm 25AP pas 1/4\" gauge 1,3mm", "198259-2", "191G96-5", "1911A1-3"],
-    "EY401MP": ["25cm 91VXL 3/8\"LP gauge 1,3mm", "XTM0000014", "191H20-4", "191G11-9"],
-    "196101-1": ["25cm 91VXL 3/8\"LP gauge 1,3mm", "XTM0000014", "191H20-4", "191G11-9"],
-    "PS-CS1": ["25cm 91VXL 3/8\"LP gauge 1,3mm", "XTM0000014", "196725-3", "191G11-9"],
-    "199930-1": ["25cm 91VXL 3/8\"LP gauge 1,3mm", "XTM0000014", "196725-3", "191G11-9"],
-    "EY403MP": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "226992-7", "191H01-8", "191G15-1"],
-    "191T38-7": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "226992-7", "191H01-8", "191G15-1"],
-    "AS3626": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
-    "AS-3626": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
-    "AS3626LGE": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
-    "AS3626LGEA": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
-    "AS-3626LGE": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
-    "AS-3626LGEA": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
-    "AS-3726": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
-    "AS3726": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
-    "AS3835RF2": ["35cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H02-6", "191G16-9"],
-    "AS3835Z": ["35cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H02-6", "191G16-9"],
-    "AS3935Z": ["35cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H02-6", "191G16-9"],
-    "AS4030ZB": ["30cm 91PX pas 3/8\" gauge 1,3mm", "221464-7", "191H10-7", "191G23-2"],
-    "AS-4035ZB": ["35cm 91PX pas 3/8\" LP gauge 1,3mm", "221464-7", "191H11-5", "191G24-0"],
-    "DUC353RF2": ["35cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H02-6", "191G16-9"],
-    "DUC353Z": ["35cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H02-6", "191G16-9"],
-    "UC250DWBE": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
-    "UC250DWBEP": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
-    "UC250DZ": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
-    "DUC252PM2": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
-    "DUC252PM4": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
-    "DUC252RF2": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
-    "DUC252RM2": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
-    "DUC252Z": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
-    "DUC355Z": ["35cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H02-6", "191G16-9"],
-    "DUC306PT2B": ["30cm 91PX pas 3/8\" gauge 1,3mm", "221464-7", "191H10-7", "191G23-2"],
-    "DUC306RF2": ["30cm 91PX pas 3/8\" gauge 1,3mm", "221464-7", "191H10-7", "191G23-2"],
-    "DUC306ZB": ["30cm 91PX pas 3/8\" gauge 1,3mm", "221464-7", "191H10-7", "191G23-2"],
-    "DUC306T001": ["30cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T90-5", "191T86-6"],
-    "DUC306Z001": ["30cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T90-5", "191T86-6"],
-    "DUC356PT2B": ["35cm 91PX pas 3/8\" LP gauge 1,3mm", "221464-7", "191H11-5", "191G24-0"],
-    "DUC356ZB": ["35cm 91PX pas 3/8\" LP gauge 1,3mm", "221464-7", "191H11-5", "191G24-0"],
-    "DUC356T001": ["35cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T91-3", "191T87-4"],
-    "DUC356Z001": ["35cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T91-3", "191T87-4"],
-    "DUC302PM4": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
-    "DUC302PT4": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
-    "DUC302RF2": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
-    "DUC302Z": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
-    "ES34TLC": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
-    "ES39TLC": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H02-6", "191G16-9"],
-    "ES43TLC": ["40cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H03-4", "191G17-7"],
-    "ES2136TLC": ["35cm 91PX pas 3/8\" gauge 1,3mm", "123886-6", "191H11-5", "191G24-0"],
-    "ES2141KTLC": ["40cm 91PX pas 3/8\" gauge 1,3mm", "123886-6", "191H12-3", "191G25-8"],
-    "ES152A": ["30cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H10-7", "191G23-2 jusqu'en 2003, puis 412030061"],
-    "ES162A": ["35cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H11-5", "191G24-0 jusqu'en 2003, puis 412035061"],
-    "ES172A": ["40cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H12-3", "191G25-8 jusqu'en 2003, puis 412040061"],
-    "ES2035A": ["35cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H11-5", "191G24-0"],
-    "ES2040A": ["40cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H12-3", "191G25-8"],
-    "ES2135A": ["35cm 91PX pas 3/8\" gauge 1,3mm", "123886-6", "191H11-5", "191G24-0"],
-    "ES2140A": ["40cm 91PX pas 3/8\" gauge 1,3mm", "123886-6", "191H12-3", "191G25-8"],
-    "ES2140AK": ["40cm 91PX pas 3/8\" gauge 1,3mm", "123886-6", "191H12-3", "191G25-8"],
-    "ES2140APK": ["40cm 91PX pas 3/8\" gauge 1,3mm", "123886-6", "191H12-3", "191G25-8"],
-    "ES31A": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "Fin de série", "191H01-8", "191G15-1"],
-    "ES31AX": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "Fin de série", "191H01-8", "191G15-1"],
-    "ES33A": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
-    "ES33AK": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
-    "ES34TLC30": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
-    "ES36A": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "Fin de série", "191H02-6", "191G16-9"],
-    "ES36AX": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "Fin de série", "191H02-6", "191G16-9"],
-    "ES38A": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H02-6", "191G16-9"],
-    "ES38AK": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H02-6", "191G16-9"],
-    "ES39TLC2C": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H02-6", "191G16-9"],
-    "ES39TLC30": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
-    "ES40A": ["40cm 90PX pas 3/8\"LP gauge 1,1mm", "Fin de série", "191H03-4", "191G17-7"],
-    "ES40AX": ["40cm 90PX pas 3/8\"LP gauge 1,1mm", "Fin de série", "191H03-4", "191G17-7"],
-    "ES42A": ["40cm 91PX pas 3/8\"LP gauge 1,3mm", "221526-1", "191H12-3", "191G25-8"],
-    "UC3001A": ["30cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H10-7", "191G23-2 jusqu'en 2003, puis 412030061"],
-    "UC3501A": ["35cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H11-5", "191G24-0 jusqu'en 2003, puis 412035061"],
-    "UC4001A": ["40cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H12-3", "191G25-8 jusqu'en 2003, puis 412040061"],
-    "UC3503A": ["35cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H11-5", "191G24-0"],
-    "UC4003A": ["40cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H12-3", "191G25-8"],
-    "UC3530AP": ["35cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H11-5", "191G24-0"],
-    "UC3030A": ["30cm 91VG pas 3/8\" gauge 1,3mm", "123886-6", "191H10-7", "191G23-2"],
-    "UC3530A": ["35cm 91VG pas 3/8\" gauge 1,3mm", "123886-6", "191H11-5", "191G24-0"],
-    "UC4030A": ["40cm 91VG pas 3/8\" gauge 1,3mm", "123886-6", "191H12-3", "191G25-8"],
-    "UC4030AK": ["40cm 91PX pas 3/8\" gauge 1,3mm", "123886-6", "191H12-3", "191G25-8"],
-    "UC4030APK": ["40cm 91PX pas 3/8\" gauge 1,3mm", "123886-6", "191H12-3", "191G25-8"],
-    "UC4530A": ["45cm 91PX pas 3/8\" gauge 1,3mm", "123886-6", "191H13-1", "191G26-6"],
-    "UC3520A": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H02-6", "191G16-9"],
-    "UC3541A": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H02-6", "191G16-9"],
-    "UC4020A": ["40cm 91PX pas 3/8\"LP gauge 1,3mm", "221526-1", "191H03-4", "191G17-7"],
-    "UC120DWA": ["115mm 25 AP pas 1/4\" gauge 1,3mm", "221504-1", "191G95-7", "158476-6"],
-    "UC120DWAE": ["115mm 25 AP pas 1/4\" gauge 1,3mm", "221504-1", "191G95-7", "158476-6"],
-    "UC120DWDE": ["115mm 25 AP pas 1/4\" gauge 1,3mm", "221504-1", "191G95-7", "158476-6"],
-    "UA004GM101": ["30cm 90PX pas 3/8\" gauge 1,1mm", "226992-7", "191H01-8", "191G15-1"],
-    "UA004GZ": ["30cm 90PX pas 3/8\" gauge 1,1mm", "226992-7", "191H01-8", "191G15-1"],
-    "DUA300Z": ["30cm 90PX pas 3/8\" gauge 1,1mm", "226992-7", "191H01-8", "191G15-1"],
-    "DUA301Z": ["30cm 90PX pas 3/8\" gauge 1,1mm", "226992-7", "191H01-8", "191G15-1"],
-    "DUC307RTX2": ["30cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H01-8", "191G15-1"],
-    "DUC307Z": ["30cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H01-8", "191G15-1"],
-    "DUC307ZX2": ["30cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H01-8", "191G15-1"],
-    "EA3200S35B": ["35cm 91PX pas 3/8\"LP gauge 1,3mm", "140M30-8", "191H11-5", "191G24-0"],
-    "UC3020A": ["30cm 90PX pas 3/8\" gauge 1,1mm", "221526-1", "345651-5", "191G15-1"],
-    "EY2650H": ["25cm 91VXL 3/8\"LP gauge 1,3mm", "XTM0000014", "191H20-4", "191G11-9"],
-    "AS3625C": ["25cm 25 AP pas 1/4\" gauge 1,3mm", "221528-7", "191G96-5", "168395-8"],
-    "AS3625LGE": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
-    "AS3625LGEX": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
-    "AS3625LGX": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
-    "PS32C35": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "140M30-8 + 267833-8", "191H02-6", "191G16-9"],
-    "PS32CTLC35": ["35cm 91PX pas 3/8\" gauge 1,3mm", "140M30-8 + 267833-8", "191H11-5", "191G24-0"],
-    "EA3100T": ["30cm 91PX pas 3/8\" gauge 1,3mm", "MR00286238", "191H09-2", "191G23-2"],
-    "PS220TH": ["25cm AP (1/4 60 maillons Carving) ou VG (3/8 40 maillons)", "Pignon 1/4 : 165393-3 | Pignon 3/8 : 165405-2", "3/8 VG : 191H08-4 | 1/4 carving : 191G96-5", "3/8 VG : 191G22-4 | 1/4 carving : 168395-8"],
-    "PS221TH": ["25cm 91PX pas 3/8\" gauge 1,3mm", "165405-2", "191H08-4", "191G22-4"],
-    "PS222TH": ["25cm 91PX pas 3/8\"LP gauge 1,3mm", "165405-2", "191H08-4", "191G22-4"],
-    "PS222THC": ["25cm AP (1/4 60 maillons Carving) ou VG (3/8 40 maillons)", "165393-3", "191G96-5", "168395-8"],
-    "PS310TH30": ["30cm 91PX pas 3/8\" gauge 1,3mm", "MR00286238", "191H09-2", "191G23-2"],
-    "PS311TH25": ["25cm 91PX pas 3/8\"LP gauge 1,3mm", "MR00286238", "191H08-4", "191G22-4"],
-    "PS311TH30": ["30cm 91PX pas 3/8\" gauge 1,3mm", "MR00286238", "191H10-7", "191G23-2"],
-    "PS32CTLC": ["35cm 91PX pas 3/8\" gauge 1,3mm", "140M30-8 + 267833-8", "191H11-5", "191G24-0"],
-    "PS32CTLC2C": ["35cm 91PX pas 3/8\" gauge 1,3mm", "140M30-8 + 267833-8", "191H11-5", "191G24-0"],
-    "PS32CTLC40": ["40cm 91PX pas 3/8\" gauge 1,3mm", "140M30-8 + 267833-8", "191H12-3", "191G25-8"],
-    "PS3400S35": ["35cm 91PX pas 3/8\" gauge 1,3mm", "140484-1 + 267833-8", "191H11-5", "191G24-0"],
-    "PS3400TH": ["35cm 91PX pas 3/8\" gauge 1,3mm", "140484-1 + 267833-8", "191H11-5", "191G24-0"],
-    "PS3400TH25": ["25cm 91PX pas 3/8\" gauge 1,3mm", "140484-1 + 267833-8", "191H08-4", "191G22-4"],
-    "PS3400TH30": ["30cm 91VG pas 3/8\" gauge 1,3mm", "140484-1 + 267833-8", "191H10-7", "191G23-2"],
-    "PS3410TH30": ["30cm 91VG pas 3/8\" gauge 1,3mm", "140M30-8", "191H10-7", "191G23-2"],
-    "PS34S35": ["35cm 91PX pas 3/8\" gauge 1,3mm", "036223100", "191H11-5", "191G24-0"],
-    "PS350CS35": ["35cm 91PX pas 3/8\" gauge 1,3mm", "143339-9", "191H11-5", "191G24-0"],
-    "PS350SC35": ["35cm 91PX pas 3/8\" gauge 1,3mm", "143339-9", "191H11-5", "191G24-0"],
-    "PS352-35": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "165725-4", "191H02-6", "191G16-9"],
-    "PS352TLC35": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "165725-4", "191H02-6", "191G16-9"],
-    "PS35C35": ["35cm 91PX pas 3/8\" gauge 1,3mm", "140M30-8 + 267833-8", "191H11-5", "191G24-0"],
-    "PS35CTLC2C": ["35cm 91PX pas 3/8\" gauge 1,3mm", "140M30-8 + 267833-8", "191H11-5", "191G24-0"],
-    "PS35CTLC35": ["35cm 91PX pas 3/8\" gauge 1,3mm", "140M30-8 + 267833-8", "191H11-5", "191G24-0"],
-    "PS400S40": ["40cm 91PX pas 3/8\" gauge 1,3mm", "028223100", "191H12-3", "191G25-8"],
-    "PS401S40": ["40cm 91PX pas 3/8\" gauge 1,3mm", "028223100", "191H12-3", "191G25-8"],
-    "PS420CS38B": ["38cm 95VPX pas 0,325 gauge 1,3mm", "195223312", "191H23-8", "191G39-7"],
-    "PS420CS40": ["40cm 91PX pas 3/8\" gauge 1,3mm", "195223312", "191H12-3", "191G25-8"],
-    "PS420SC38": ["38cm 95VPX pas 0,325 gauge 1,3mm", "158927-9", "191H23-8", "191G39-7"],
-    "PS420SC40": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "195223312", "191H12-3", "191G25-8"],
-    "PS420SCKIT38": ["38cm 95VPX pas 0,325 gauge 1,3mm", null, "191H23-8", "191G39-7"],
-    "PS45S40": ["40cm 91PX pas 3/8\" gauge 1,3mm", "36223100", "191H12-3", "191G17-7"],
-    "PS4600S45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "026224010", "191H50-5", "191G51-7"],
-    "PS460-38": ["38cm 21BPX pas 0,325 gauge 1,5mm", "158927-9", "191H29-6", "191G45-2"],
-    "PS460-45": ["45cm 73DPX pas 3/8\" gauge 1,5mm", "181223322", "191H43-2", "191G51-7"],
-    "PS4605-45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "026224010", "191H50-5", "191G51-7"],
-    "PS4605S45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "026224010", "191H50-5", "191G51-7"],
-    "PS460S38B": ["38cm 21BPX pas 0,325 gauge 1,5mm", "181223314", "191H29-6", "191G45-2"],
-    "PS460S45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "026224010", "191H50-5", "191G51-7"],
-    "PS5000DS45": [null, "0,325 : 181224040 | 3/8 : 026224010", "0,325 : 191H30-1 | 3/8 : 191H43-2", "0,325 : 191G46-0 | 3/8 : 191G51-7"],
-    "PS5000S45": [null, "0,325 : 181224040 | 3/8 : 026224010", "0,325 : 191H30-1 | 3/8 : 191H43-2", "0,325 : 191G46-0 | 3/8 : 191G51-7"],
-    "PS500-45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "181223322", "191H50-5", "191G51-7"],
-    "PS500C45": ["45cm 73DPX pas 3/8\" gauge 1,5mm", "181223322", "191H43-2", "191G51-7"],
-    "PS500S45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "181223322", "191H50-5", "191G51-7"],
-    "PS5105-45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "26224010", "191H50-5", "191G51-7"],
-    "PS5105C45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "26224010", "191H50-5", "191G51-7"],
-    "PS5105CKIT45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "26224010", "191H50-5", "191G51-7"],
-    "PS5105DKIT": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "26224010", "191H50-5", "191G51-7"],
-    "PS5105DS45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "26224010", "191H50-5", "191G51-7"],
-    "PS5105KIT45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "26224010", "191H50-5", "191G51-7"],
-    "PS5105S45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "26224010", "191H50-5", "191G51-7"],
-    "PS550-38": ["38cm 21LPX pas0,325 gauge 1,5mm", "181224040", "191H35-1", "191G45-2"],
-    "PS550-45": ["45cm 73DPX pas 3/8\" gauge 1,5mm", "181223322", "191H43-2", "191G45-2"],
-    "PS6100-45": ["45cm 73LPX pas 3/8\" gauge 1,5mm", "26224010", "191H50-5", "191G51-7"],
-    "PS6100-53": ["50cm 73LPX pas 3/8\" gauge 1,5mm", "26224010", "191H52-1", "191G52-5"],
-    "PS6400HS50": ["50cm 73LPX pas 3/8\" gauge 1,5mm", "119224070", "191H52-1", "FS"],
-    "PS7300HS50": ["50cm 73LPX pas 3/8\" gauge 1,5mm", "119224070", "191H52-1", "FS"],
-    "PS7310-50": ["50cm 73LPX pas 3/8\" gauge 1,5mm", "119224070", "191H52-1", "FS"],
-    "PS7900HS60": ["60cm 73LPX pas 3/8\" gauge 1,5mm", "119224070", "191H54-7", "FS"],
-    "PS7910-50": ["50cm 73LPX pas 3/8\" gauge 1,5mm", "119224070", "191H52-1", "FS"],
-    "PS7910-60PM": ["60cm 73LPX pas 3/8\" gauge 1,5mm", "119224070", "191H54-7", "415060555"],
-    "PS9010S60": ["60cm 73LPX pas 3/8\" gauge 1,5mm", "119224070", "191H53-9", "415060452"],
-    "EA3201S35A": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "140M30-8 + 267833-8", "191H02-6", "191G16-9"],
-    "EA3201S35B": ["35cm 91PX pas 3/8\" gauge 1,3mm", "140M30-8 + 267833-8", "191H11-5", "191G24-0"],
-    "EA3500F35B": ["trop de configuration", "trop de configuration", "trop de configuration", "trop de configuration"],
-    "EA3500S35B": ["35cm 91PX pas 3/8\" gauge 1,3mm", "140M30-8 + 267833-8", "191H11-5", "191G24-0"],
-    "EA3501S35": ["35cm 91PX pas 3/8\" gauge 1,3mm", "140M30-8 + 267833-8", "191H11-5", "191G24-0"],
-    "EA3501S35B": ["35cm 91PX pas 3/8\" gauge 1,3mm", "140M30-8 + 267833-8", "191H11-5", "191G24-0"],
-    "EA3601F35": ["35cm 91PX pas 3/8\"LP gauge 1,3mm", "165725-4", "191G24-0", "191H11-5"],
-    "EA3601F35B": ["35cm 91PX pas 3/8\"LP gauge 1,3mm", "165725-4", "191G24-0", "191H11-5"],
-    "EA4300F40B": ["40cm 91PX pas 3/8\" gauge 1,3mm", "143339-9", "191H12-3", "191G25-8"],
-    "UC002GM102": ["25cm 91PX pas 3/8\" gauge 1,3mm", "191V90-7", "191H08-4", "191G22-4"],
-    "UC002GM103": ["25cm 80TXL pas 0,325\" gauge 1,1mm", "191V91-5", "191T89-0", "191T85-8"],
-    "UC002GM202": ["25cm 91PX pas 3/8\" gauge 1,3mm", "191V90-7", "191H08-4", "191G22-4"],
-    "UC002GM203": ["25cm 80TXL pas 0,325\" gauge 1,1mm", "191V91-5", "191T89-0", "191T85-8"],
-    "UC002GZ01": ["25cm 91PX pas 3/8\" gauge 1,3mm", "191V90-7", "191H08-4", "191G22-4"],
-    "UC002GZ02": ["25cm 80TXL pas 0,325\" gauge 1,1mm", "191V91-5", "191T89-0", "191T85-8"],
-    "UC006GZ": ["25cm AP (1/4 60 maillons Carving) ou VG (3/8 40 maillons)", "191V92-3", "191G96-5", "168407-7"],
-    "UC011GT102": ["35cm 91PX pas 3/8\" gauge 1,3mm", "191V90-7", "191H11-5", "191G24-0"],
-    "UC011GZ01": ["35cm 91PX pas 3/8\" gauge 1,3mm", "191V90-7", "191H11-5", "191G24-0"],
-    "UC012GT102": ["40cm 91PX pas 3/8\" gauge 1,3mm", "191V90-7", "191H12-3", "191G25-8"],
-    "UC012GZ01": ["40cm 80TXL pas 0,325\" gauge 1,1mm", "191V91-5", "191T92-1", "191T88-2"],
-    "UC022GZ": ["35cm 80TXL pas 0,325\" gauge 1,1mm", "191V91-5", "191T91-3", "191T87-4"],
-    "UC029GZ": ["15cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "1912E8-3", "1912F1-4"],
-    };
+    <h2 style="margin-top: 40px;">Caractéristiques guides et chaînes</h2>
+    <hr>
+    
+    <div class="search-section">
+        <p class="search-label">Modèle EXACT de la tronçonneuse :</p>
+        <div class="search-container">
+            <input type="text" id="chainsawRef" class="search-input" placeholder="Ex: DUC254Z001" list="refList">
+            <datalist id="refList"></datalist>
+        </div>
+    </div>
 
-    const datalist = document.getElementById("refList");
-    for (const ref in referenceData) {
-      const option = document.createElement("option");
-      option.value = ref;
-      datalist.appendChild(option);
-    }
+    <div id="chainsawResults" class="results-container" style="display: none;">
+        <div class="results-block">
+            <div class="field">
+                <span class="field-label">Spécification technique:</span>
+                <span class="field-value" id="ref1">-</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Référence du pignon :</span>
+                <span class="field-value" id="ref2">-</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Référence de la chaîne :</span>
+                <span class="field-value" id="ref3">-</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Référence du guide :</span>
+                <span class="field-value" id="ref4">-</span>
+            </div>
+        </div>
+        <button id="copyChainsawButton" class="copy-button">Tout copier</button>
+        <p id="notFound" style="color: red; display: none;">Référence non trouvée 😕</p>
+    </div>
 
-    function updateReferences() {
-      const input = document.getElementById("mainRef").value.trim().toUpperCase();
-      let found = false;
+    <a href="https://partage-support-technique.github.io/sommaire/" class="summary-button">Sommaire</a>
 
-      if (referenceData[input]) {
-        const [spec, pignon, chaine, guide] = referenceData[input];
-        document.getElementById("ref1").textContent = spec;
-        document.getElementById("ref2").textContent = pignon;
-        document.getElementById("ref3").textContent = chaine;
-        document.getElementById("ref4").textContent = guide;
-        found = true;
-      }
+    <div class="footer-signature">
+        Le support Technique Makita<br>
+        V2.23
+    </div>
 
-      document.getElementById("notFound").style.display = found ? "none" : "block";
+    <script>
+        const brushCutterData = [
+            {"Famille": "À batterie 36 V", "Machine": "AL3630", "Filetage tête": "M8 x 1,25 D", "Référence tête à fil(s)": "A-90124", "Descriptif tête": "Tap et Go 2 fils Rond", "Diamètre de coupe fil": "Ø300mm/Ø2,7mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "À batterie 36 V", "Machine": "AL3630LGE", "Filetage tête": "M8 x 1,25 D", "Référence tête à fil(s)": "A-90124", "Descriptif tête": "Tap et Go 2 fils Rond", "Diamètre de coupe fil": "Ø300mm/Ø2,7mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1826", "Filetage tête": "Pince", "Référence tête à fil(s)": "195859-9", "Descriptif tête": "(1 fil)", "Diamètre de coupe fil": "Ø260mm/Ø1,65mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1826H", "Filetage tête": "Pince", "Référence tête à fil(s)": "195859-9", "Descriptif tête": "(1 fil)", "Diamètre de coupe fil": "Ø260mm/Ø1,65mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1826LGH", "Filetage tête": "Pince", "Référence tête à fil(s)": "195859-9", "Descriptif tête": "(1 fil)", "Diamètre de coupe fil": "Ø260mm/Ø1,65mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1827", "Filetage tête": "Pince", "Référence tête à fil(s)": "195859-9", "Descriptif tête": "(1 fil)", "Diamètre de coupe fil": "Ø260mm/Ø1,65mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1827H", "Filetage tête": "Pince", "Référence tête à fil(s)": "195859-9", "Descriptif tête": "(1 fil)", "Diamètre de coupe fil": "Ø260mm/Ø1,65mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1827LGH", "Filetage tête": "Pince", "Référence tête à fil(s)": "195859-9", "Descriptif tête": "(1 fil)", "Diamètre de coupe fil": "Ø260mm/Ø1,65mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1831C", "Filetage tête": "M8 x 1,25 G", "Référence tête à fil(s)": "A-89121", "Descriptif tête": "Tap & Go 2 fils", "Diamètre de coupe fil": "Ø300mm/Ø2,4mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1831CL", "Filetage tête": "M8 x 1,25 G", "Référence tête à fil(s)": "A-89121", "Descriptif tête": "Tap & Go 2 fils", "Diamètre de coupe fil": "Ø300mm/Ø2,4mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1831U", "Filetage tête": "M8 x 1,25 G", "Référence tête à fil(s)": "A-89121", "Descriptif tête": "Tap & Go 2 fils", "Diamètre de coupe fil": "Ø300mm/Ø2,4mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1831UL", "Filetage tête": "M8 x 1,25 G", "Référence tête à fil(s)": "A-89121", "Descriptif tête": "Tap & Go 2 fils", "Diamètre de coupe fil": "Ø300mm/Ø2,4mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1832C", "Filetage tête": "M8 x 1,25 D", "Référence tête à fil(s)": "198971-4", "Descriptif tête": "TETE 2 FIL TAP&GO (FIL TREFLE)", "Diamètre de coupe fil": "Ø300mm/Ø2mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1832CL", "Filetage tête": "M8 x 1,25 D", "Référence tête à fil(s)": "198971-4", "Descriptif tête": "TETE 2 FIL TAP&GO (FIL TREFLE)", "Diamètre de coupe fil": "Ø300mm/Ø2mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1832CL2", "Filetage tête": "M8 x 1,25 D", "Référence tête à fil(s)": "198971-4", "Descriptif tête": "TETE 2 FIL TAP&GO (FIL TREFLE)", "Diamètre de coupe fil": "Ø300mm/Ø2mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "LXT - 18 V", "Machine": "AT1832CZ", "Filetage tête": "M8 x 1,25 D", "Référence tête à fil(s)": "198971-4", "Descriptif tête": "TETE 2 FIL TAP&GO (FIL TREFLE)", "Diamètre de coupe fil": "Ø300mm/Ø2mm", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "non compatible", "Carter lame": "non compatible"},
+            {"Famille": "À batterie 36 V", "Machine": "AT3623", "Filetage tête": "M10 x 1,25 G", "Référence tête à fil(s)": "Non de série", "Descriptif tête": "Non de série", "Diamètre de coupe fil": "Non de série", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "D-66008 Ø230mm", "Carter lame": "enlever extension fil 140583-9"},
+            {"Famille": "À batterie 36 V", "Machine": "AT3623LG", "Filetage tête": "M10 x 1,25 G", "Référence tête à fil(s)": "Non de série", "Descriptif tête": "Non de série", "Diamètre de coupe fil": "Non de série", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "D-66008 Ø230mm", "Carter lame": "enlever extension fil 140583-9"},
+            {"Famille": "À batterie 36 V", "Machine": "AT3623LGE", "Filetage tête": "M10 x 1,25 G", "Référence tête à fil(s)": "Non de série", "Descriptif tête": "Non de série", "Diamètre de coupe fil": "Non de série", "Couteau plastique": "non compatible", "Carter couteau plastique": "non compatible", "Lame": "D-66008 Ø230mm", "Carter lame": "enlever extension fil 140583-9"}
+        ];
 
-      if (!found) {
-        ["ref1", "ref2", "ref3", "ref4"].forEach(id => document.getElementById(id).textContent = "-");
-      }
-    }
+        const chainsawData = {
+            "DUC254Z001": ["25cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T89-0", "191T85-8"],
+            "5016B": ["40cm 91PX pas 3/8\" gauge 1,3mm", "221514-8", "191H12-3", "168248-1"],
+            "DUC254Z": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
+            "DUC254RT": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
+            "DUC254RF": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
+            "DUC254T002": ["25cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T89-0", "191T85-8"],
+            "DUC254T003": ["25cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T89-0", "191T85-8"],
+            "ME246-4": ["255mm pas 3/8\" gauge 1,3mm", "XTM0000014", "196725-3", "191G11-9"],
+            "AS1812LG3": ["255mm 25AP pas 1/4\" gauge 1,3mm", "221527-9", "191G95-7", "158479-0"],
+            "AS1925": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
+            "AS1925Z": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
+            "AS1925RT2": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
+            "AS1925RF": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
+            "AS1925CRT2": ["25cm 90PX pas 3/8\" gauge 1,1mm", "199063-2", "191H00-0", "191G14-3"],
+            "AS1925CZ": ["25cm 25AP pas 1/4\" gauge 1,3mm", "198259-2", "191G96-5", "168395-8"],
+            "DUC254C": ["25cm 25AP pas 1/4\" gauge 1,3mm", "198259-2", "191G96-5", "1911A1-3"],
+            "EY401MP": ["25cm 91VXL 3/8\"LP gauge 1,3mm", "XTM0000014", "191H20-4", "191G11-9"],
+            "196101-1": ["25cm 91VXL 3/8\"LP gauge 1,3mm", "XTM0000014", "191H20-4", "191G11-9"],
+            "PS-CS1": ["25cm 91VXL 3/8\"LP gauge 1,3mm", "XTM0000014", "196725-3", "191G11-9"],
+            "199930-1": ["25cm 91VXL 3/8\"LP gauge 1,3mm", "XTM0000014", "196725-3", "191G11-9"],
+            "EY403MP": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "226992-7", "191H01-8", "191G15-1"],
+            "191T38-7": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "226992-7", "191H01-8", "191G15-1"],
+            "AS3626": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
+            "AS-3626": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
+            "AS3626LGE": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
+            "AS3626LGEA": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
+            "AS-3626LGE": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
+            "AS-3626LGEA": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "191G22-4"],
+            "AS-3726": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
+            "AS3726": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
+            "AS3835RF2": ["35cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H02-6", "191G16-9"],
+            "AS3835Z": ["35cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H02-6", "191G16-9"],
+            "AS3935Z": ["35cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H02-6", "191G16-9"],
+            "AS4030ZB": ["30cm 91PX pas 3/8\" gauge 1,3mm", "221464-7", "191H10-7", "191G23-2"],
+            "AS-4035ZB": ["35cm 91PX pas 3/8\" LP gauge 1,3mm", "221464-7", "191H11-5", "191G24-0"],
+            "DUC353RF2": ["35cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H02-6", "191G16-9"],
+            "DUC353Z": ["35cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H02-6", "191G16-9"],
+            "UC250DWBE": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
+            "UC250DWBEP": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
+            "UC250DZ": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
+            "DUC252PM2": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
+            "DUC252PM4": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
+            "DUC252RF2": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
+            "DUC252RM2": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
+            "DUC252Z": ["25cm 91PX pas 3/8\" gauge 1,3mm", "221526-1", "191H08-4", "168406-9"],
+            "DUC355Z": ["35cm 90PX pas 3/8\" gauge 1,1mm", "221464-7", "191H02-6", "191G16-9"],
+            "DUC306PT2B": ["30cm 91PX pas 3/8\" gauge 1,3mm", "221464-7", "191H10-7", "191G23-2"],
+            "DUC306RF2": ["30cm 91PX pas 3/8\" gauge 1,3mm", "221464-7", "191H10-7", "191G23-2"],
+            "DUC306ZB": ["30cm 91PX pas 3/8\" gauge 1,3mm", "221464-7", "191H10-7", "191G23-2"],
+            "DUC306T001": ["30cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T90-5", "191T86-6"],
+            "DUC306Z001": ["30cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T90-5", "191T86-6"],
+            "DUC356PT2B": ["35cm 91PX pas 3/8\" LP gauge 1,3mm", "221464-7", "191H11-5", "191G24-0"],
+            "DUC356ZB": ["35cm 91PX pas 3/8\" LP gauge 1,3mm", "221464-7", "191H11-5", "191G24-0"],
+            "DUC356T001": ["35cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T91-3", "191T87-4"],
+            "DUC356Z001": ["35cm 80TXL pas 0,325\" gauge 1,1mm", "1911W5-9", "191T91-3", "191T87-4"],
+            "DUC302PM4": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
+            "DUC302PT4": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
+            "DUC302RF2": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
+            "DUC302Z": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
+            "ES34TLC": ["30cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H01-8", "191G15-1"],
+            "ES39TLC": ["35cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H02-6", "191G16-9"],
+            "ES43TLC": ["40cm 90PX pas 3/8\"LP gauge 1,1mm", "221526-1", "191H03-4", "191G17-7"],
+            "ES2136TLC": ["35cm 91PX pas 3/8\" gauge 1,3mm", "123886-6", "191H11-5", "191G24-0"],
+            "ES2141KTLC": ["40cm 91PX pas 3/8\" gauge 1,3mm", "123886-6", "191H12-3", "191G25-8"],
+            "ES152A": ["30cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H10-7", "191G23-2 jusqu'en 2003, puis 412030061"],
+            "ES162A": ["35cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H11-5", "191G24-0 jusqu'en 2003, puis 412035061"],
+            "ES172A": ["40cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H12-3", "191G25-8 jusqu'en 2003, puis 412040061"],
+            "ES182A": ["45cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H13-1", "191G26-6 jusqu'en 2003, puis 412045061"],
+            "ES2035A": ["35cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H11-5", "191G24-0 jusqu'en 2003, puis 412035061"],
+            "ES2040A": ["40cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H12-3", "191G25-8 jusqu'en 2003, puis 412040061"],
+            "ES2045A": ["45cm 91PX pas 3/8\" gauge 1,3mm", "Fin de série", "191H13-1", "191G26-6 jusqu'en 2003, puis 412045061"]
+        };
 
-    function copyText(id) {
-      const text = document.getElementById(id).textContent;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Copié : " + text);
-      });
-    }
+        // Brush cutter section
+        const modelSearch = document.getElementById('modelSearch');
+        const datalist = document.getElementById('models');
+        const resultsContainer = document.getElementById('resultsContainer');
+        const copyButton = document.getElementById('copyButton');
+        
+        const fields = {
+            'familleValue': 'Famille',
+            'machineValue': 'Machine',
+            'filetageValue': 'Filetage tête',
+            'referenceValue': 'Référence tête à fil(s)',
+            'descriptifValue': 'Descriptif tête',
+            'diametreCoupeValue': 'Diamètre de coupe fil',
+            'couteauPlastiqueValue': 'Couteau plastique',
+            'carterCouteauValue': 'Carter couteau plastique',
+            'lameValue': 'Lame',
+            'carterLameValue': 'Carter lame'
+        };
 
-    function copyAll() {
-      const fields = ["ref1", "ref2", "ref3", "ref4"];
-      const labels = ["Spécification technique", "Référence du pignon", "Référence de la chaîne", "Référence du guide"];
-      const allText = fields.map((id, i) => `${labels[i]} : ${document.getElementById(id).textContent}`).join('\n');
-      navigator.clipboard.writeText(allText).then(() => {
-        alert("Toutes les références ont été copiées !");
-      });
-    }
-  </script>
+        modelSearch.addEventListener('input', function() {
+            const query = this.value.toUpperCase();
+            datalist.innerHTML = '';
+            const filteredData = brushCutterData.filter(item => item.Machine.toUpperCase().startsWith(query));
+            filteredData.forEach(item => {
+                const option = document.createElement('option');
+                option.value = item.Machine;
+                datalist.appendChild(option);
+            });
+        });
+
+        modelSearch.addEventListener('change', function() {
+            const selectedModel = this.value;
+            const item = brushCutterData.find(d => d.Machine === selectedModel);
+
+            if (item) {
+                for (const [id, key] of Object.entries(fields)) {
+                    document.getElementById(id).textContent = item[key] || 'non disponible';
+                }
+                resultsContainer.style.display = 'block';
+                
+                datalist.innerHTML = '';
+                this.blur();
+            } else {
+                resultsContainer.style.display = 'none';
+            }
+        });
+
+        modelSearch.addEventListener('blur', function() {
+            setTimeout(() => {
+                if (this.value && brushCutterData.find(d => d.Machine === this.value)) {
+                    datalist.innerHTML = '';
+                }
+            }, 100);
+        });
+
+        copyButton.addEventListener('click', function() {
+            let textToCopy = "Caractéristiques de la machine :\n\n";
+            for (const [id, label] of Object.entries(fields)) {
+                const value = document.getElementById(id).textContent;
+                textToCopy += `${label} : ${value}\n`;
+            }
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('Toutes les caractéristiques ont été copiées dans le presse-papiers !');
+            }).catch(err => {
+                console.error('Erreur lors de la copie :', err);
+                alert('Impossible de copier. Veuillez réessayer.');
+            });
+        });
+
+        // Chainsaw section
+        const chainsawRefInput = document.getElementById('chainsawRef');
+        const chainsawDatalist = document.getElementById('refList');
+        const chainsawResultsContainer = document.getElementById('chainsawResults');
+        const notFound = document.getElementById('notFound');
+
+        chainsawRefInput.addEventListener('input', function() {
+            const input = this.value.trim().toUpperCase();
+            chainsawDatalist.innerHTML = '';
+            const keys = Object.keys(chainsawData);
+            const filteredKeys = keys.filter(key => key.toUpperCase().startsWith(input));
+            filteredKeys.forEach(key => {
+                const option = document.createElement('option');
+                option.value = key;
+                chainsawDatalist.appendChild(option);
+            });
+        });
+
+        chainsawRefInput.addEventListener('change', function() {
+            const selectedModel = this.value.trim().toUpperCase();
+            const data = chainsawData[selectedModel];
+            if (data) {
+                document.getElementById("ref1").textContent = data[0];
+                document.getElementById("ref2").textContent = data[1];
+                document.getElementById("ref3").textContent = data[2];
+                document.getElementById("ref4").textContent = data[3];
+                notFound.style.display = "none";
+                chainsawResultsContainer.style.display = "block";
+                this.blur();
+            } else {
+                notFound.style.display = "block";
+                chainsawResultsContainer.style.display = "none";
+                ["ref1", "ref2", "ref3", "ref4"].forEach(id => document.getElementById(id).textContent = "-");
+            }
+            chainsawDatalist.innerHTML = '';
+        });
+
+        chainsawRefInput.addEventListener('blur', function() {
+            setTimeout(() => {
+                if (this.value && chainsawData[this.value.trim().toUpperCase()]) {
+                    chainsawDatalist.innerHTML = '';
+                }
+            }, 100);
+        });
+
+        document.getElementById('copyChainsawButton').addEventListener('click', function() {
+            const fields = ["ref1", "ref2", "ref3", "ref4"];
+            const labels = ["Spécification technique", "Référence du pignon", "Référence de la chaîne", "Référence du guide"];
+            const allText = fields.map((id, i) => `${labels[i]} : ${document.getElementById(id).textContent}`).join('\n');
+            
+            navigator.clipboard.writeText(allText).then(() => {
+                alert('Toutes les références ont été copiées dans le presse-papiers !');
+            }).catch(err => {
+                console.error('Erreur lors de la copie :', err);
+                alert('Impossible de copier. Veuillez réessayer.');
+            });
+        });
+    </script>
+
 </body>
 </html>
